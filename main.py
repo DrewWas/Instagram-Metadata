@@ -14,11 +14,7 @@ n = 0
 
 for followee in profile.get_followers():
 	followers.append(followee.username)
-	file = open(str(UN)+ "_followers.txt", "a+")
-	file.write(followers[n])
-	file.write("\n")
-	file.close()
-	print(followers[n])
 	n = n + 1
 
-
+print(followers) 
+print(len(followers))
