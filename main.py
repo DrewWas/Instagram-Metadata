@@ -14,45 +14,29 @@ else:
 
 
 L.login(UN,PW)
-
 profile = instaloader.Profile.from_username(L.context, str(UN))
 
 followers = []
 following_1 = []
 not_back = []
-
 print("0% done")
+
+
 
 def all():
 
 	for followee in profile.get_followers():
 		followers.append(followee.username)
-
-
-
 	print("50% done")
-
 	for following in profile.get_followees():
 		following_1.append(following.username)
-
-
 	print("75% done")
-
-
 	for i in following_1:
 		if i in following_1 and i not in followers:
 			not_back.append(i)
 
 
-
-
-if includeVerified == True:
-	all()
-	for i in not_back:
-		print(i)
-	print(len(not_back))	
-
-else:
+def notall():
 	for followee in profile.get_followers():
 		followers.append(followee.username)
 	print("50% done")
@@ -62,8 +46,18 @@ else:
 	print("75% done")
 	for i in following_1:
 		if i in following_1 and i not in followers:
-			not_back.append(i)
+			not_back.append(i)	
+	
 
+
+if includeVerified == True:
+	all()
+	for i in not_back:
+		print(i)
+	print(len(not_back))	
+
+else:
+	notall()
 	for i in not_back:
 		print(i)
 	print(len(not_back))
