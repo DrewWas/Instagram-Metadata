@@ -1,30 +1,35 @@
 import instaloader
-
+import sys
+	
 
 L = instaloader.Instaloader()
 UN = input("Enter username: ")
 PW = input("Enter password: ")
-includeVerified = False
-tt = input("Would you like to include verified users in this search? (y/n): ")
 
-if tt == "y":
-	includeVerified = True
-else:
-	includeVerified = False
+try:
+	L.login(UN,PW)
+	profile = instaloader.Profile.from_username(L.context, str(UN))
+except:
+	print("\n", "\n", "Username and Password dont match", "\n")
+	sys.exit()
+
+#tt = input("Would you like to include verified users in this search? (y/n): ")
+
+print("\n", "\n", "Data available to retrieve: ", "\n", "~Users not following you back~","\n", "~Users you're not following back~", "\n")
+
+option = input("What data would you like to see? ")
 
 
-L.login(UN,PW)
-profile = instaloader.Profile.from_username(L.context, str(UN))
 
+#variables
 followers = []
 following_1 = []
 not_back = []
-print("0% done")
-
+includeVerified = False
 
 
 def all():
-
+	print("0% done")
 	for followee in profile.get_followers():
 		followers.append(followee.username)
 	print("50% done")
@@ -37,6 +42,7 @@ def all():
 
 
 def notall():
+	print("0% done")	
 	for followee in profile.get_followers():
 		followers.append(followee.username)
 	print("50% done")
