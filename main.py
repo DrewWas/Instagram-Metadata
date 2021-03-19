@@ -20,6 +20,7 @@ option = input("What data would you like to see? ")
 andVerified = input("Would you like to include verified users? (y/n): ")
 print("\n")
 
+
 #variables
 followers = []
 following_1 = []
