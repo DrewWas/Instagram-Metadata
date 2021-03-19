@@ -110,7 +110,7 @@ elif "1" in option and "n" in andVerified:
 	print("total - ", len(not_back))
 	print("\n")
 else:
-	print("Input incorrect", "\n", "~Please hit ^C and try again", "\n")
+	print("Input incorrect", "\n", "~ Please make sure you only enter what is prompted ~", "\n")
 
 	
 
