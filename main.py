@@ -74,14 +74,15 @@ def whoIDontVerify():
 	for followee in profile.get_followers():
 		followers.append(followee.username)
 	print("50% done")
-	for following in profile.get_followees():
-		if followee.is_verified == False:
-			following_1.append(i)
-	print("75% done") 
+	for following in profile.get_followers():
+		if following.is_verified == False:
+			following_1.append(following.username)
+	print("75% done")
 	print("\n")
 	for i in followers:
 		if i in followers and i not in following_1:
 			not_back.append(i)
+
 
 
 if "0" in option and "y" in andVerified:
